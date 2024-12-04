@@ -1,0 +1,146 @@
+/* Reset de Estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1a0b46, #360a8b);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fondo Overlay */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Espacio adicional para dispositivos pequeños */
+}
+
+/* Contenedor de Inicio de Sesión */
+.login-container {
+    background-color: #250364;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 100%; /* Ajusta al ancho completo en dispositivos pequeños */
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff007b;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #360a8b;
+    color: white;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+input:focus {
+    box-shadow: 0 0 10px rgba(255, 0, 123, 0.7);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff007b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #e6006e;
+    transform: scale(1.05);
+}
+
+#error-message {
+    color: #ff4d4d;
+    margin-top: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+        max-width: 350px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+        max-width: 100%; /* Ocupa todo el ancho en dispositivos pequeños */
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

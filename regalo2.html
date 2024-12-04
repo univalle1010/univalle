@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas de Regalo - Tienda SotoFreakin1407</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a0b46;
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #360A8B;
+            flex-wrap: wrap;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .header:hover {
+            background-color: #4b12b8;
+        }
+
+        .logo img {
+            width: 80px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 10px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background-color: #250364;
+            color: white;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-bar input::placeholder {
+            color: #bbbbbb;
+        }
+
+        .search-bar input:focus {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .user-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .user-options a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .user-options a:hover {
+            color: #ff007b;
+        }
+
+        .navigation {
+            background-color: #250364;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navigation ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .navigation ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navigation ul li a:hover {
+            color: #ff007b;
+        }
+
+        .catalog {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .catalog h1 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .owl-carousel .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #3b1460;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            height: 100%;
+        }
+
+        .owl-carousel .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .owl-carousel .item h5 {
+            font-size: 1.2rem;
+            color: #ffd700;
+            margin: 10px 0;
+            flex-grow: 1;
+        }
+
+        .price {
+            color: #ff007b;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #ff007b;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6006e;
+        }
+
+        .footer {
+            background-color: #250364;
+            color: white;
+            padding: 40px 20px;
+            text-align: left;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .footer-column h5 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ff007b;
+        }
+
+        .footer {
+    background-color: #250364;
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ffd700; /* Color dorado para los títulos */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding-left: 10px; /* Espaciado para un efecto visual atractivo */
+}
+
+.footer-column ul li a:hover {
+    color: #ff007b;
+    padding-left: 20px; /* Efecto de desplazamiento a la izquierda al pasar el mouse */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a img {
+    width: 35px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.subscribe {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.subscribe h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.subscribe form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.subscribe input {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 30px;
+    border: 2px solid #ff007b;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.subscribe input::placeholder {
+    color: #ddd;
+    font-style: italic;
+}
+
+.subscribe input:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    background-color: #360a8b;
+}
+
+.subscribe button {
+    padding: 12px 30px;
+    background-color: #ff007b;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    text-align: center;
+}
+
+.subscribe button:hover {
+    background-color: #e6006e;
+    transform: scale(1.1);
+}
+
+.subscribe button:active {
+    background-color: #d5005c;
+}
+
+/* Animación para los campos de entrada */
+.subscribe input:focus, .subscribe button:focus {
+    outline: none;
+}
+
+.footer-legal {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Todos los elementos en una sola columna */
+    }
+
+    .subscribe input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-column h3 {
+        font-size: 16px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+
+    .subscribe input {
+        max-width: 100%;
+    }
+
+    .social-icons a img {
+        width: 30px;
+    }
+}
+
+/* Estilo general */
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    max-width: 600px; /* Ancho máximo para el campo de búsqueda */
+    margin: 0 auto; /* Centrado horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: 2px solid #ff007b;
+    background-color: #360a8b;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+.search-bar input:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    background-color: #1a0b46;
+}
+
+/* Estilo de los resultados de búsqueda */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #360a8b;
+    border-radius: 10px;
+    border: 1px solid #ffd700;
+    color: white;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results ul li {
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.search-results ul li:hover {
+    background: #ff007b;
+    border-radius: 5px;
+}
+
+.search-results ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.search-results ul li a:hover {
+    color: #ffd700;
+}
+
+/* Media Queries para hacerlo responsivo */
+@media (max-width: 1024px) {
+    .search-bar {
+        max-width: 500px; /* Reduce el tamaño máximo en pantallas medianas */
+    }
+    .search-bar input {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 90%; /* Aumenta el tamaño relativo del campo de búsqueda en pantallas pequeñas */
+        margin: 0 10px; /* Agrega márgenes laterales en pantallas pequeñas */
+    }
+
+    .search-bar input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 90%;
+    }
+
+    .search-bar input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .search-results {
+        max-height: 200px; /* Reduce la altura máxima de los resultados en pantallas pequeñas */
+    }
+
+    .search-results ul li {
+        font-size: 14px; /* Ajuste de tamaño de fuente para pantallas pequeñas */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="sffff.png" alt="Logo Eneba">
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Busca tarjetas de regalo">
+            <div id="search-results" class="search-results"></div>
+        </div>
+        <div class="user-options">
+            <a href="iniciosesion.html">Iniciar Sesión</a> 
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="proyecto.html">Inicio</a></li>
+            <li><a href="steam.html">Juegos Steam</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="comocomprar.html">Como comprar</a></li>
+            
+        </ul>
+    </nav>
+
+    <main class="catalog">
+        <h1>Tarjetas de Regalo Disponibles</h1>
+
+        <!-- Sección de Tarjetas de Spotify -->
+        <div class="carousel-section">
+            <h2 class="text-center mb-4">Tarjetas de Spotify</h2>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="spotify.webp" alt="Spotify 10 Bs">
+                    <h5>Spotify - 10 Bs</h5>
+                    <p class="price">10 Bs</p>
+                    <a href="spotify10.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="spotify.webp" alt="Spotify 50 Bs">
+                    <h5>Spotify - 50 Bs</h5>
+                    <p class="price">50 Bs</p>
+                    <a href="spotify50.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="spotify.webp" alt="Spotify 100 Bs">
+                    <h5>Spotify - 100 Bs</h5>
+                    <p class="price">100 Bs</p>
+                    <a href="spotify100.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Tarjetas de Epic Games -->
+        <div class="carousel-section">
+            <h2 class="text-center mb-4">Tarjetas de Epic Games</h2>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="epicgames.png" alt="Epic Games 70 Bs">
+                    <h5>Epic Games - 70 Bs</h5>
+                    <p class="price">70 Bs</p>
+                    <a href="epicgames70.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="epicgames.png" alt="Epic Games 140 Bs">
+                    <h5>Epic Games - 140 Bs</h5>
+                    <p class="price">140 Bs</p>
+                    <a href="epicgames140.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="epicgames.png" alt="Epic Games 700 Bs">
+                    <h5>Epic Games - 700 Bs</h5>
+                    <p class="price">700 Bs</p>
+                    <a href="epicgames700.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Tarjetas de Steam -->
+        <div class="carousel-section">
+            <h2 class="text-center mb-4">Tarjetas de Steam</h2>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="Steam_icon_logo.svg.png" alt="Steam 70 Bs">
+                    <h5>Steam - 70 Bs</h5>
+                    <p class="price">70 Bs</p>
+                    <a href="steam70.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="Steam_icon_logo.svg.png" alt="Steam 140 Bs">
+                    <h5>Steam - 140 Bs</h5>
+                    <p class="price">140 Bs</p>
+                    <a href="steam140.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="Steam_icon_logo.svg.png" alt="Steam 700 Bs">
+                    <h5>Steam - 700 Bs</h5>
+                    <p class="price">700 Bs</p>
+                    <a href="steam700.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Tarjetas de Nintendo Switch -->
+        <div class="carousel-section">
+            <h2 class="text-center mb-4">Tarjetas de Nintendo Switch</h2>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="nintendo.webp" alt="Nintendo 70 Bs">
+                    <h5>Nintendo - 70 Bs</h5>
+                    <p class="price">70 Bs</p>
+                    <a href="nintendo70.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="nintendo.webp" alt="Nintendo 140 Bs">
+                    <h5>Nintendo - 140 Bs</h5>
+                    <p class="price">140 Bs</p>
+                    <a href="nintendo140.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+                <div class="item">
+                    <img src="nintendo.webp" alt="Nintendo 700 Bs">
+                    <h5>Nintendo - 700 Bs</h5>
+                    <p class="price">700 Bs</p>
+                    <a href="nintendo700.html" class="btn btn-primary">Comprar ahora</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Sobre Nosotros</h3>
+                <ul>
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                    <li><a href="pqhicimos.html">Por que hicimos esta pagina</a></li>
+                    <li><a href="frases.html">Frases de videojueogs</a></li>
+                    <li><a href="comentarios.html">Comentarios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Comprar</h3>
+                <ul>
+                    <li><a href="comocomprar.html">Cómo Comprar</a></li>
+                    <li><a href="canjearsteam.html">canjear en steam</a></li>
+                    <li><a href="canjearepic.html">canjear en epic games</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    
+                    <li><a href="devoluciones.html">Política de Devoluciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Comunidad</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="sorteo.html">Sorteos</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/p/18AAEs5R2T/"><img src="facebook.png" alt="Facebook"></a>
+                    <a href="https://x.com/?lang=es"><img src="xxxx.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com"><img src="ig.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe">
+            <h3>Recibe ofertas personalizadas</h3>
+            <form id="subscribeForm">
+                <input type="email" id="emailInput" placeholder="Introduce tu email" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+        
+        <script>
+            document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Previene el envío por defecto del formulario
+        
+                const emailInput = document.getElementById("emailInput").value;
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Patrón simple de validación de email
+        
+                if (emailPattern.test(emailInput)) {
+                    alert("¡Gracias por suscribirte!");
+                    // Aquí puedes añadir lógica adicional para enviar el email al servidor
+                } else {
+                    alert("Por favor, introduce un correo electrónico válido.");
+                }
+            });
+        </script>
+        
+        <p class="footer-legal">© 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+
+    <!-- JavaScript para Owl Carousel -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                items: 3,
+                margin: 20,
+                loop: true,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.getElementById("search-results");
+        const gameItems = document.querySelectorAll(".item");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            const matches = Array.from(gameItems).filter(item =>
+                item.querySelector("h5").textContent.toLowerCase().includes(searchTerm)
+            );
+
+            if (matches.length > 0 && searchTerm.trim() !== "") {
+                searchResults.style.display = "block";
+                searchResults.innerHTML = `<ul>${matches
+                    .map(
+                        match =>
+                            `<li><a href="${match.querySelector("a").href}">${match.querySelector("h5").textContent}</a></li>`
+                    )
+                    .join("")}</ul>`;
+            } else {
+                searchResults.style.display = "none";
+            }
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!document.querySelector(".search-bar").contains(e.target)) {
+                searchResults.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

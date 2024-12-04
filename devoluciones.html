@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Devoluciones - Tienda SotoFreakin1407</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0b46, #360a8b);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: #2e006a;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .logo img {
+            max-height: 50px;
+            transition: transform 0.3s;
+        }
+
+        .header .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .login-register {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .login-register a {
+            color: #ff007b;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-register a:hover {
+            color: #e6006e;
+            transform: translateY(-2px);
+        }
+
+        .policy-section {
+            padding: 60px 20px;
+            background-color: #22034c;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 40px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .policy-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .policy-section h2 {
+            color: #ffd700;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        .policy-section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #dddddd;
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 20px;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .policy-details {
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+            color: #ffffff;
+            animation: slideIn 1.5s ease;
+        }
+
+        .policy-details li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            transition: transform 0.3s, color 0.3s;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .policy-details li::before {
+            content: "•";
+            color: #ff007b;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            top: 0;
+        }
+
+        .policy-details li:hover {
+            transform: translateX(10px);
+            color: #ffd700;
+        }
+
+        .footer {
+            background-color: #250364;
+            padding: 20px;
+            text-align: center;
+            color: #bbbbbb;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #ff007b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #e6006e;
+        }
+
+        .btn-home {
+            background-color: #1a0b46;
+            color: #ffd700;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-home:hover {
+            background-color: #250364;
+            transform: translateY(-2px);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quotes-section {
+                padding: 40px 15px;
+                margin: 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2rem;
+            }
+
+            .form-control {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-home {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .header {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 15px 30px;
+            }
+
+            .quotes-section {
+                padding: 50px 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .login-register {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        @media (min-width: 901px) {
+            .quotes-section {
+                padding: 60px 40px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Actualizado -->
+    <header class="header">
+        
+        <h2 style="color: #ffd700; font-size: 1.8rem; text-align: center;">Sotofreakin1407</h2>
+        <div class="login-register" id="user-info">
+            <a href="proyecto.html" class="btn-home">Volver a Inicio</a>
+            <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> 
+        </div>
+    </header>
+
+    <!-- Sección "Política de Devoluciones" -->
+    <section class="policy-section">
+        <div class="container">
+            <h2>Política de Devoluciones</h2>
+            <p>En Tienda SotoFreakin1407, nos comprometemos a ofrecerte la mejor experiencia posible. Aquí tienes toda la información sobre cómo gestionar devoluciones de productos digitales:</p>
+            <ul class="policy-details">
+                <li><strong>Devoluciones de Juegos Digitales:</strong> Las devoluciones de juegos digitales se aceptan únicamente si el código no ha sido utilizado. Una vez que un código ha sido canjeado, no podemos procesar la devolución.</li>
+                <li><strong>Plazo de Devolución:</strong> Tienes 14 días desde la fecha de compra para solicitar una devolución, siempre y cuando el código no haya sido activado.</li>
+                <li><strong>Procedimiento de Devolución:</strong> Para iniciar una devolución, ponte en contacto con nuestro servicio de atención al cliente con tu comprobante de compra.</li>
+                <li><strong>Excepciones:</strong> Las devoluciones no son posibles para ofertas especiales, paquetes promocionales o juegos comprados durante eventos de descuento.</li>
+            </ul>
+            <p>Si tienes alguna pregunta adicional, no dudes en ponerte en contacto con nosotros. ¡Estamos aquí para ayudarte!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 Tienda SotoFreakin1407. Todos los derechos reservados. <a href="privacidad.html">Política de Privacidad</a></p>
+    </div>
+
+    <!-- Funcionalidad de Sesión -->
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const userInfo = document.getElementById("user-info");
+
+            if (loggedInUser) {
+                userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <span>Bienvenido, ${loggedInUser}</span> | <a href="iniciosesion.html" onclick="logout()">Cerrar sesión</a>`;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            const userInfo = document.getElementById("user-info");
+            userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> `;
+        }
+    </script>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

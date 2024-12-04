@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #3e2723; /* Marrón oscuro, similar al ambiente western */
+    color: #fff4e6; /* Blanco sucio, para contraste suave */
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #c62828; /* Rojo profundo */
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.header:hover {
+    background-color: #d32f2f; /* Rojo más brillante */
+}
+
+.logo img {
+    width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #d32f2f; /* Rojo oscuro */
+    background-color: #4e342e; /* Marrón oscuro */
+    color: #fff4e6;
+    font-size: 16px;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: #888; /* Gris claro para el placeholder */
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 10px rgba(211, 47, 47, 0.7); /* Resaltado en rojo */
+    background-color: #6d4c41; /* Fondo más claro cuando está enfocado */
+    border-color: #ff9800; /* Naranja cálido cuando está en focus */
+}
+
+/* Opciones de usuario */
+.user-options {
+    display: flex;
+    gap: 10px;
+}
+
+.user-options a {
+    color: #fff4e6;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.user-options a:hover {
+    color: #ff9800; /* Naranja cálido en hover */
+}
+
+/* Navegación */
+.navigation {
+    background-color: #c62828; /* Rojo profundo */
+    padding: 15px;
+    text-align: center;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navigation ul li a {
+    color: #fff4e6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+    color: #ff9800; /* Naranja cálido en el hover */
+}
+
+/* Catálogo de productos */
+.catalog {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.catalog h1 {
+    font-size: 2.5rem;
+    color: #ff9800; /* Naranja cálido para el título */
+    margin-bottom: 20px;
+}
+
+/* Estilo de los productos en el carrusel */
+.owl-carousel .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #5d4037; /* Marrón cálido */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.owl-carousel .item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.owl-carousel .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.owl-carousel .item h5 {
+    font-size: 1.2rem;
+    color: #ff9800; /* Naranja cálido */
+    margin: 10px 0;
+}
+
+.price {
+    color: #d32f2f; /* Rojo profundo para el precio */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #ff9800; /* Naranja cálido */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #e65100; /* Naranja más intenso */
+}
+
+/* Footer */
+.footer {
+    background-color: #c62828; /* Rojo profundo */
+    color: #fff4e6;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ffd700; /* Dorado */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #fff4e6;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding-left: 10px;
+}
+
+.footer-column ul li a:hover {
+    color: #ff9800; /* Naranja cálido */
+    padding-left: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a img {
+    width: 35px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.subscribe {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.subscribe h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffd700; /* Dorado */
+    font-weight: bold;
+}
+
+.subscribe form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.subscribe input {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 30px;
+    border: 2px solid #ff9800; /* Naranja cálido */
+    background-color: transparent;
+    color: #fff4e6;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.subscribe input::placeholder {
+    color: #ddd;
+    font-style: italic;
+}
+
+.subscribe input:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    background-color: #3e2723;
+}
+
+.subscribe button {
+    padding: 12px 30px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    text-align: center;
+}
+
+.subscribe button:hover {
+    background-color: #e65100;
+    transform: scale(1.1);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .cart {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}

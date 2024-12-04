@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Juegos Xbox - Tienda SotoFreakin1407</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a3b26; /* Fondo oscuro verdoso similar a Xbox */
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #107c10; /* Verde Xbox */
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.header:hover {
+    background-color: #00b300; /* Verde más brillante para hover */
+}
+
+.logo img {
+    width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.search-bar {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: #1c5e1d; /* Verde oscuro */
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: #bbbbbb;
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    background-color: #163d12; /* Un tono más oscuro al hacer focus */
+}
+
+.user-options {
+    display: flex;
+    gap: 10px;
+}
+
+.user-options a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.user-options a:hover {
+    color: #00ff2a;
+}
+
+.navigation {
+    background-color: #107c10; /* Verde Xbox */
+    padding: 10px;
+    text-align: center;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navigation ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+    color: #00b300; /* Verde brillante para hover */
+}
+
+.catalog {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.catalog h1 {
+    font-size: 2rem;
+    color: #00b300; /* Verde brillante de Xbox */
+    margin-bottom: 20px;
+}
+
+.owl-carousel .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #163d12; /* Fondo oscuro similar a Xbox */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.owl-carousel .item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.owl-carousel .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.owl-carousel .item h5 {
+    font-size: 1.2rem;
+    color: #ffd700; /* Dorado para los títulos */
+    margin: 10px 0;
+}
+
+.price {
+    color: #04ff2e; /* Azul Xbox para los precios */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #00b300; /* Verde brillante */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #00b000; /* Verde más brillante */
+}
+
+.footer {
+    background-color: #107c10; /* Verde Xbox */
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ffd700; /* Color dorado */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding-left: 10px;
+}
+
+.footer-column ul li a:hover {
+    color: #079b1f;
+    padding-left: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a img {
+    width: 35px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.subscribe {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.subscribe h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.subscribe form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.subscribe input {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 30px;
+    border: 2px solid #0b6802;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.subscribe input::placeholder {
+    color: #ddd;
+    font-style: italic;
+}
+
+.subscribe input:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    background-color: #360a8b;
+}
+
+.subscribe button {
+    padding: 12px 30px;
+    background-color: #00b300; /* Verde brillante */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    text-align: center;
+}
+
+.subscribe button:hover {
+    background-color: #00b000;
+    transform: scale(1.1);
+}
+
+.subscribe button:active {
+    background-color: #007f00;
+}
+
+/* Animación para los campos de entrada */
+.subscribe input:focus, .subscribe button:focus {
+    outline: none;
+}
+
+.footer-legal {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Todos los elementos en una sola columna */
+    }
+
+    .subscribe input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-column h3 {
+        font-size: 16px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+
+    .subscribe input {
+        max-width: 100%;
+    }
+
+    .social-icons a img {
+        width: 30px;
+    }
+}
+
+/* Estilo general del buscador */
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    max-width: 600px; /* Ancho máximo para el campo de búsqueda */
+    margin: 0 auto; /* Centrado horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Estilo del campo de entrada */
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 2px solid #009d3a; /* Verde Xbox */
+    background-color: #1c5c35; /* Fondo oscuro similar a Xbox */
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder */
+.search-bar input::placeholder {
+    color: #a0a9bb; /* Gris claro para el texto del placeholder */
+    font-style: italic;
+}
+
+/* Estilo del campo de entrada cuando se hace focus */
+.search-bar input:focus {
+    border-color: #00b300; /* Verde brillante cuando está en focus */
+    box-shadow: 0 0 10px rgba(0, 179, 0, 0.7); /* Resaltado verde brillante */
+    background-color: #183b26; /* Un tono ligeramente más claro cuando el campo está activo */
+}
+
+/* Estilo de los resultados de búsqueda */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1c5c35; /* Fondo oscuro */
+    border-radius: 10px;
+    border: 1px solid #00b300; /* Verde claro para el borde */
+    color: white;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo de cada resultado */
+.search-results ul li {
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+/* Hover de los resultados de búsqueda */
+.search-results ul li:hover {
+    background: #00b300; /* Verde claro al pasar el mouse */
+    border-radius: 5px;
+}
+
+.search-results ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+/* Hover de los enlaces de los resultados */
+.search-results ul li a:hover {
+    color: #ffd700; /* Color dorado en el hover */
+}
+
+/* Media Queries para hacerlo responsivo */
+@media (max-width: 1024px) {
+    .search-bar {
+        max-width: 500px; /* Reduce el tamaño máximo en pantallas medianas */
+    }
+    .search-bar input {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 90%; /* Aumenta el tamaño relativo del campo de búsqueda en pantallas pequeñas */
+        margin: 0 10px; /* Agrega márgenes laterales en pantallas pequeñas */
+    }
+
+    .search-bar input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 90%;
+    }
+
+    .search-bar input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .search-results {
+        max-height: 200px; /* Reduce la altura máxima de los resultados en pantallas pequeñas */
+    }
+
+    .search-results ul li {
+        font-size: 14px; /* Ajuste de tamaño de fuente para pantallas pequeñas */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="sffff.png" alt="Logo Eneba">
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Busca juegos de Xbox">
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para los resultados -->
+        </div>
+        <div class="user-options">
+            <a href="iniciosesion.html">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="proyecto.html">Inicio</a></li>
+            <li><a href="psn.html">Juegos PSN</a></li>
+            <li><a href="comocomprar.html">Como comprar</a></li>
+            <li><a href="rd2.html">Red dead remption 2</a></li>
+            
+        </ul>
+    </nav>
+
+    <main class="catalog">
+        <h1>Juegos Disponibles en Xbox</h1>
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <img src="haloin.jpg" alt="Halo Infinite">
+                <h5>Halo Infinite</h5>
+                <p class="price">249 Bs</p>
+                <a href="halo.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="forza5.jpg" alt="Forza Horizon 5">
+                <h5>Forza Horizon 5</h5>
+                <p class="price">120 Bs</p>
+                <a href="forza5.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="gears5.webp" alt="Gears of War 5">
+                <h5>Gears of War 5</h5>
+                <p class="price">179 Bs</p>
+                <a href="gears.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="seaof.jpg" alt="Sea of Thieves">
+                <h5>Sea of Thieves</h5>
+                <p class="price">159 Bs</p>
+                <a href="seaof.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="fable.jpg" alt="Fable">
+                <h5>Fable</h5>
+                <p class="price">199 Bs</p>
+                <a href="fable.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="state2.81d0bb22-fae9-4fb4-b268-5b8d608407d3" alt="State of Decay 2">
+                <h5>State of Decay 2</h5>
+                <p class="price">139 Bs</p>
+                <a href="state2.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="sunset.jpg" alt="Sunset Overdrive">
+                <h5>Sunset Overdrive</h5>
+                <p class="price">119 Bs</p>
+                <a href="sunset.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="ori.jpg" alt="Ori and the Will of the Wisps">
+                <h5>Ori and the Will of the Wisps</h5>
+                <p class="price">129 Bs</p>
+                <a href="ori.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="quantum.webp" alt="Quantum Break">
+                <h5>Quantum Break</h5>
+                <p class="price">149 Bs</p>
+                <a href="quantum.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="battletoads.jpg" alt="Battletoads">
+                <h5>Battletoads</h5>
+                <p class="price">99 Bs</p>
+                <a href="battletoads.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="state1.jpg" alt="State of Decay 1">
+                <h5>State of Decay 1</h5>
+                <p class="price">69 Bs</p>
+                <a href="state1.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="theouter.e4e4e15c-dc47-4608-80a4-564c7284796a" alt="The Outer Worlds">
+                <h5>The Outer Worlds</h5>
+                <p class="price">420 Bs</p>
+                <a href="outer.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="Psychonauts2.jpeg" alt="Psychonauts 2">
+                <h5>Psychonauts 2</h5>
+                <p class="price">420 Bs</p>
+                <a href="Psychonauts2.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="Crackdown3.jpg" alt="Crackdown 3">
+                <h5>Crackdown 3</h5>
+                <p class="price">210 Bs</p>
+                <a href="Crackdown3.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            
+            <div class="item">
+                <img src="Microsoftflight.jpg" alt="Microsoft Flight Simulator">
+                <h5>Microsoft Flight Simulator</h5>
+                <p class="price">420 Bs</p>
+                <a href="MicrosoftFligh.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="Age of Empires IV.webp" alt="Age of Empires IV">
+                <h5>Age of Empires IV</h5>
+                <p class="price">420 Bs</p>
+                <a href="Age4.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="recore.jpg" alt="ReCore">
+                <h5>ReCore</h5>
+                <p class="price">140 Bs</p>
+                <a href="recore.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="Aplague.9d9bc90d-f7e7-4328-8fe5-17ec40b96bb0" alt="A Plague Tale: Requiem">
+                <h5>A Plague Tale: Requiem</h5>
+                <p class="price">420 Bs</p>
+                <a href="aplague.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="forzamotors.webp" alt="Forza Motorsport ">
+                <h5>Forza Motorsport </h5>
+                <p class="price">480 Bs</p>
+                <a href="forzamotors.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+
+            
+
+            
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Sobre Nosotros</h3>
+                <ul>
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                    <li><a href="pqhicimos.html">Por que hicimos esta pagina</a></li>
+                    <li><a href="frases.html">Frases de videojueogs</a></li>
+                    <li><a href="comentarios.html">Comentarios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Comprar</h3>
+                <ul>
+                    <li><a href="comocomprar.html">Cómo Comprar</a></li>
+                    <li><a href="canjearsteam.html">canjear en steam</a></li>
+                    <li><a href="canjearepic.html">canjear en epic games</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    
+                    <li><a href="devoluciones.html">Política de Devoluciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Comunidad</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="sorteo.html">Sorteos</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/p/18AAEs5R2T/"><img src="facebook.png" alt="Facebook"></a>
+                    <a href="https://x.com/?lang=es"><img src="xxxx.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com"><img src="ig.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe">
+            <h3>Recibe ofertas personalizadas</h3>
+            <form id="subscribeForm">
+                <input type="email" id="emailInput" placeholder="Introduce tu email" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+        
+        <script>
+            document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Previene el envío por defecto del formulario
+        
+                const emailInput = document.getElementById("emailInput").value;
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Patrón simple de validación de email
+        
+                if (emailPattern.test(emailInput)) {
+                    alert("¡Gracias por suscribirte!");
+                    // Aquí puedes añadir lógica adicional para enviar el email al servidor
+                } else {
+                    alert("Por favor, introduce un correo electrónico válido.");
+                }
+            });
+        </script>
+        
+        <p class="footer-legal">© 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                items: 3,
+                margin: 20,
+                loop: true,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.getElementById("search-results");
+        const gameItems = document.querySelectorAll(".item");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            const matches = Array.from(gameItems).filter(item =>
+                item.querySelector("h5").textContent.toLowerCase().includes(searchTerm)
+            );
+
+            if (matches.length > 0 && searchTerm.trim() !== "") {
+                searchResults.style.display = "block";
+                searchResults.innerHTML = `<ul>${matches
+                    .map(
+                        match =>
+                            `<li><a href="${match.querySelector("a").href}">${match.querySelector("h5").textContent}</a></li>`
+                    )
+                    .join("")}</ul>`;
+            } else {
+                searchResults.style.display = "none";
+            }
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!document.querySelector(".search-bar").contains(e.target)) {
+                searchResults.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

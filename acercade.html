@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros - Tienda SotoFreakin1407</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a1b9a, #b39ddb); /* Gradiente morado para fondo */
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: #4a148c;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .header .logo img {
+            max-height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .header .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 2px solid #8e24aa;
+            background-color: #5e35b1;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-register a {
+            color: #ffeb3b;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-register a:hover {
+            color: #e65100;
+            transform: translateY(-3px);
+        }
+
+        .about-section {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            margin: 40px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: #ffd700;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #ffffff;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .team-section {
+            padding: 60px 20px;
+            background-color: #6a1b9a;
+            text-align: center;
+            border-top: 5px solid #ffeb3b;
+        }
+
+        .team-section h2 {
+            color: #ffd700;
+            margin-bottom: 40px;
+            font-size: 2.4rem;
+        }
+
+        .team-member {
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .team-member img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member h5 {
+            color: #ffd700;
+            margin-top: 15px;
+        }
+
+        .team-member p {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #4a148c;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ff9800;
+        }
+
+        .btn-home {
+            background-color: #1a0b46;
+            color: #ffd700;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-home:hover {
+            background-color: #250364;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quotes-section {
+                padding: 40px 15px;
+                margin: 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2rem;
+            }
+
+            .form-control {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-home {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .header {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 15px 30px;
+            }
+
+            .quotes-section {
+                padding: 50px 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .login-register {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        @media (min-width: 901px) {
+            .quotes-section {
+                padding: 60px 40px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Actualizado -->
+    <header class="header">
+        
+        <h2 style="color: #ffd700; font-size: 1.8rem; text-align: center;">Sotofreakin1407</h2>
+        <div class="login-register" id="user-info">
+            <a href="proyecto.html" class="btn-home">Volver a Inicio</a>
+            <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> 
+        </div>
+    </header>
+
+    <!-- Sección "Acerca de Nosotros" -->
+    <section class="about-section">
+        <div class="container">
+            <h2>Acerca de Nosotros</h2>
+            <p>Somos tu destino número uno para juegos digitales, ofreciendo las mejores ofertas en títulos populares, tarjetas de regalo y contenido exclusivo. Nuestro objetivo es proporcionarte una experiencia de compra rápida, segura y emocionante, para que puedas disfrutar de tus juegos favoritos sin complicaciones.</p>
+        </div>
+    </section>
+
+    <!-- Sección "Nuestro Equipo" -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Nuestro Equipo</h2>
+            <div class="row">
+                <div class="col-md-4 text-center team-member">
+                    <img src="empleado1.jpg" alt="Miembro del Equipo">
+                    <h5>Víctor Manuel Uribe</h5>
+                    <p>Fundador y CEO</p>
+                </div>
+                <div class="col-md-4 text-center team-member">
+                    <img src="empleada2.jpg" alt="Miembro del Equipo">
+                    <h5>Lucía Fernández</h5>
+                    <p>Directora de Marketing</p>
+                </div>
+                <div class="col-md-4 text-center team-member">
+                    <img src="empleada3.jpeg" alt="Miembro del Equipo">
+                    <h5>Carlos Soto</h5>
+                    <p>Jefe de Desarrollo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 Tienda SotoFreakin1407. Todos los derechos reservados. <a href="privacidad.html">Política de Privacidad</a></p>
+    </div>
+
+    <!-- Funcionalidad de Sesión -->
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const userInfo = document.getElementById("user-info");
+
+            if (loggedInUser) {
+                // Si el usuario ha iniciado sesión, muestra su nombre y un enlace para cerrar sesión
+                userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <span>Bienvenido, ${loggedInUser}</span> | <a href="iniciosesion.html" onclick="logout()">Cerrar sesión</a>`;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser"); // Elimina el estado de la sesión
+    
+            // Vuelve a mostrar los enlaces "Iniciar sesión" y "Registrarse"
+            const userInfo = document.getElementById("user-info");
+            userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> `;
+        }
+    </script>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

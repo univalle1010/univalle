@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Por Qué Hicimos Esta Página - Tienda SotoFreakin1407</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+/* Estilos globales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a0b46, #360a8b);
+    color: white;
+    overflow-x: hidden;
+    margin: 0;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Animación fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.header {
+    background-color: #2e006a;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.header:hover {
+    background-color: #7200a1;
+}
+
+.header .logo img {
+    max-height: 60px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header .logo img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.login-register a {
+    color: #ffd700;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.login-register a:hover {
+    color: #e6006e;
+    transform: translateY(-3px);
+}
+
+.contact-section {
+    padding: 60px 20px;
+    background-color: #2e006a;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 40px;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-section h2 {
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #dddddd;
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: #3e2a47;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #bbbbbb;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: #5a2c7d;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.btn-submit {
+    background-color: #ff007b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #e6006e;
+    transform: translateY(-3px);
+}
+
+/* Sección de citas */
+.quote-section {
+    background-color: #360a8b;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin: 20px 40px;
+    color: #ffd700;
+    font-style: italic;
+    font-size: 1.5rem;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.quote-section span {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #e6006e;
+}
+
+/* Footer */
+.footer {
+    background-color: #250364;
+    padding: 20px;
+    text-align: center;
+    color: #bbbbbb;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #ff007b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #e6006e;
+}
+
+/* Botón de inicio */
+.btn-home {
+    background-color: #1a0b46;
+    color: #ffd700;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: #250364;
+    transform: translateY(-2px);
+}
+
+/* Estilo para las citas y sus cuadros */
+.quote-section {
+    border: 3px solid #ffd700; /* Cuadro dorado alrededor */
+    margin: 20px 0;
+    padding: 30px;
+    background-color: #360a8b;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quotes-section {
+                padding: 40px 15px;
+                margin: 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2rem;
+            }
+
+            .form-control {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-home {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .header {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 15px 30px;
+            }
+
+            .quotes-section {
+                padding: 50px 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .login-register {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        @media (min-width: 901px) {
+            .quotes-section {
+                padding: 60px 40px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+.purpose-section {
+            padding: 60px 20px;
+            background-color: #22034c;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 40px;
+            text-align: center;
+        }
+
+        .purpose-section h2 {
+            color: #ffd700;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .purpose-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #dddddd;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Header Actualizado -->
+    <header class="header">
+        
+        <h2 style="color: #ffd700; font-size: 1.8rem; text-align: center;">Sotofreakin1407</h2>
+        <div class="login-register" id="user-info">
+            <a href="proyecto.html" class="btn-home">Volver a Inicio</a>
+            <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> 
+        </div>
+    </header>
+
+    <!-- Sección "Por Qué Hicimos Esta Página" -->
+    <section class="purpose-section">
+        <div class="container">
+            <h2>Por Qué Hicimos Esta Página</h2>
+            <p>La creación de Tienda SotoFreakin1407 nació de nuestra pasión por los videojuegos y el deseo de conectar a jugadores de todo el mundo con los mejores títulos y ofertas. Queríamos un espacio donde la comunidad gamer pudiera encontrar contenido exclusivo, compartir su entusiasmo y disfrutar de una experiencia de compra fluida y confiable.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Citas Inspiradoras -->
+    <div class="quote-section">
+        "Los videojuegos no solo son entretenimiento, son una experiencia que conecta almas y une amigos de todo el mundo."
+        <span>- Víctor Manuel Uribe, Fundador</span>
+    </div>
+
+    
+    <div class="quote-section">
+        "Los videojuegos permiten que los jugadores exploren mundos desconocidos y se conviertan en héroes en su propia historia."
+        <span>- Lucía Fernández, Directora de Marketing</span>
+    </div>
+    
+    <div class="quote-section">
+        "Cada videojuego es una puerta a un universo de emociones, retos y aventuras que nos hacen crecer."
+        <span>- Carlos Soto, Jefe de Desarrollo</span>
+    </div>
+    
+    <div class="quote-section">
+        "El verdadero poder de los videojuegos está en su capacidad para unir personas, más allá de cualquier distancia física."
+        <span>- María González, Coordinadora de Comunidad</span>
+    </div>
+    
+    <div class="quote-section">
+        "El gaming es una forma de arte, donde cada juego es una pintura llena de historia, emoción y creatividad."
+        <span>- José Rodríguez, Product Manager</span>
+    </div>
+    
+    <div class="quote-section">
+        "En cada videojuego hay una historia esperando ser contada, una experiencia esperando ser vivida."
+        <span>- Elena Jiménez, Diseñadora de Experiencias</span>
+    </div>
+    
+    <div class="quote-section">
+        "El gaming no es solo un pasatiempo; es una cultura que crea una comunidad global, unida por la pasión."
+        <span>- Andrés Sánchez, Director Creativo</span>
+    </div>
+    
+    <div class="quote-section">
+        "Cada partida es una nueva oportunidad para aprender, superarse y disfrutar de un viaje único."
+        <span>- Mariana López, Community Manager</span>
+    </div>
+    
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 Tienda SotoFreakin1407. Todos los derechos reservados. <a href="privacidad.html">Política de Privacidad</a></p>
+    </div>
+
+    <!-- Funcionalidad de Sesión -->
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const userInfo = document.getElementById("user-info");
+
+            if (loggedInUser) {
+                // Si el usuario ha iniciado sesión, muestra su nombre y un enlace para cerrar sesión
+                userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <span>Bienvenido, ${loggedInUser}</span> | <a href="iniciosesion.html" onclick="logout()">Cerrar sesión</a>`;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser"); // Elimina el estado de la sesión
+    
+            // Vuelve a mostrar los enlaces "Iniciar sesión" y "Registrarse"
+            const userInfo = document.getElementById("user-info");
+            userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> `;
+        }
+    </script>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

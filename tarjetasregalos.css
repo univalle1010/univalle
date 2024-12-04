@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background-color: #111;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px;
+}
+
+main {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.game-card {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+.game-info {
+    padding: 20px;
+}
+
+.game-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.game-info p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}

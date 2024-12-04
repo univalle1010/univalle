@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios - Tienda SotoFreakin1407</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1a0b46, #360a8b);
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #360A8B;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .login-register a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-register a:hover {
+            color: #ff007b;
+        }
+
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .navigation ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navigation ul li a:hover {
+            color: #ff007b;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #250364;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 100px;
+            border-radius: 10px;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            background: #360a8b;
+            color: white;
+            resize: none;
+        }
+
+        button {
+            background-color: #ff007b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6006e;
+        }
+
+        .comment-list {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .comment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #360a8b;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .comment-item p {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            color: #c0392b;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #0078d7;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #005fa3;
+        }
+        .user-options {
+    display: flex;
+    gap: 10px;
+}
+
+.user-options a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.user-options a:hover {
+    color: #ff007b;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Tienda SotoFreakin1407</div>
+        <div class="user-options">
+            <a href="iniciosesion.html">Iniciar Sesión</a> 
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="proyecto.html">Inicio</a></li>
+            <li><a href="das.html">Dashboard</a></li>
+            <li><a href="topgames.html">Juegos populares</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Deja tu comentario</h1>
+        <form id="commentForm">
+            <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+            <button type="submit">Enviar comentario</button>
+        </form>
+        <div class="comment-list" id="commentList"></div>
+        <a href="proyecto.html" class="back-btn">Volver al Inicio</a>
+    </div>
+    
+
+    <script>
+        const commentForm = document.getElementById("commentForm");
+        const commentText = document.getElementById("commentText");
+        const commentList = document.getElementById("commentList");
+
+        const renderComments = () => {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            commentList.innerHTML = comments.map((comment, index) => `
+                <div class="comment-item">
+                    <p>${comment}</p>
+                    <button class="delete-btn" onclick="deleteComment(${index})">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            `).join("");
+        };
+
+        const deleteComment = (index) => {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.splice(index, 1);
+            localStorage.setItem("comments", JSON.stringify(comments));
+            renderComments();
+        };
+
+        commentForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const comment = commentText.value.trim();
+            if (comment) {
+                const comments = JSON.parse(localStorage.getItem("comments")) || [];
+                comments.push(comment);
+                localStorage.setItem("comments", JSON.stringify(comments));
+                commentText.value = "";
+                renderComments();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", renderComments);
+    </script>
+        <script src="auth.js"></script>
+        <script src="jedi_survivor.js"></script>
+</body>
+</html>

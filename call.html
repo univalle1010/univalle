@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - Tienda SotoFreakin1407</title>
+    <link rel="stylesheet" href="cyberpunk.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Tienda SotoFreakin1407</div>
+        <nav class="nav">
+            <a href="proyecto.html">Inicio</a>
+            <a href="comocomprar.html">Como comprar</a>
+            <a href="topgames.html">Juegos ilegales</a>
+            <a href="contactos.html">Contactos</a>
+            <a href="FAQ.html">FAQ</a>
+        </nav>
+        <div class="user-options">
+            <a href="iniciosesion.html">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <section class="product-overview">
+            <img src="callof.jpeg" alt="Call of Duty: Modern Warfare II" class="product-image">
+            <div class="product-info">
+                <h1>Call of Duty: Modern Warfare II</h1>
+                <div class="badges">
+                    <span>Global</span>
+                    <span>Steam</span>
+                    <span>Digital Key</span>
+                </div>
+                <p class="price">Bs. 349</p>
+                <button class="buy-btn">Comprar ahora</button>
+            </div>
+            <div id="cart" class="cart">
+                <h2>Carrito de Compras</h2>
+                <ul id="cart-items"></ul>
+                <p><span id="cart-total">0</span> Bs.</p>
+                <button id="clear-cart">Vaciar Carrito</button>
+                <button id="buy-cart" disabled>Comprar</button>
+                <button id="hide-cart-btn">Ocultar</button>
+            </div>
+            <button id="show-cart-btn" style="display: none;">Mostrar</button>
+            
+        </section>
+
+        <section class="product-details">
+            <h2>¿De qué trata el juego?</h2>
+            <p>Prepárate para la experiencia de combate más inmersiva de Call of Duty. Con una historia envolvente, modos multijugador dinámicos y mapas increíblemente detallados, Modern Warfare II redefine los estándares del género.</p>
+            <section class="video-section">
+                <h2>¡Mira el tráiler de Call of Duty: Modern Warfare II!</h2>
+                <iframe src="https://www.youtube.com/embed/3wzfnmXK1tg"
+                        title="Tráiler de Call of Duty: Modern Warfare II"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+                <p>Descubre más sobre este emocionante juego.</p>
+            </section>
+            
+            <h2>Características del juego</h2>
+            <ul class="features-list">
+                <li>Gráficos realistas y jugabilidad fluida</li>
+                <li>Modos de juego multijugador y campaña</li>
+                <li>Variedad de armas personalizables</li>
+                <li>Compatible con crossplay</li>
+            </ul>
+            
+            <h2>Incluye</h2>
+            <ul class="includes-list">
+                <li>El juego base</li>
+                <li>Pase de batalla inicial</li>
+                <li>Paquete de armas exclusivo</li>
+            </ul>
+            
+            <div class="additional-details">
+                <h2>Detalles Adicionales</h2>
+                <p>Fecha de lanzamiento: 28 de octubre, 2022</p>
+                <p>Editor: Activision</p>
+                <p>Desarrollador: Infinity Ward</p>
+            </div>
+        </section>
+    </main>
+    
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+    <script>
+        const cart = {
+            items: JSON.parse(localStorage.getItem('cartItems')) || [],
+
+            saveCart() {
+                localStorage.setItem('cartItems', JSON.stringify(this.items));
+            },
+
+            addItem(item) {
+                const existingItem = this.items.find(i => i.id === item.id);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    this.items.push({ ...item, quantity: 1 });
+                }
+                this.saveCart();
+                this.updateCartUI();
+            },
+
+            removeItem(itemId) {
+                const item = this.items.find(i => i.id === itemId);
+                if (item) {
+                    if (item.quantity > 1) {
+                        item.quantity -= 1; // Reduce la cantidad en 1
+                    } else {
+                        this.items = this.items.filter(i => i.id !== itemId); // Elimina el producto
+                    }
+                    this.saveCart();
+                    this.updateCartUI();
+                }
+            },
+
+            clearCart() {
+                this.items = [];
+                this.saveCart();
+                this.updateCartUI();
+            },
+
+            calculateTotal() {
+                return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
+            },
+
+            updateCartUI() {
+                const cartItems = document.getElementById('cart-items');
+                const cartTotal = document.getElementById('cart-total');
+                const buyButton = document.getElementById('buy-cart');
+
+                cartItems.innerHTML = '';
+                this.items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} - Bs. ${item.price} x ${item.quantity}`;
+                    const removeBtn = document.createElement('button');
+                    removeBtn.textContent = 'Eliminar';
+                    removeBtn.onclick = () => this.removeItem(item.id);
+                    li.appendChild(removeBtn);
+                    cartItems.appendChild(li);
+                });
+
+                cartTotal.textContent = `Total: Bs. ${this.calculateTotal()}`;
+                buyButton.disabled = this.items.length === 0;
+            },
+
+            purchase() {
+                if (this.items.length === 0) {
+                    alert('El carrito está vacío.');
+                    return;
+                }
+                alert('Compra realizada exitosamente. ¡Gracias!');
+                this.clearCart();
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cart.updateCartUI();
+
+            const buyButton = document.querySelector('.buy-btn');
+            const clearCartButton = document.getElementById('clear-cart');
+            const purchaseButton = document.getElementById('buy-cart');
+
+            buyButton.addEventListener('click', () => {
+                const product = {
+                    id: 2, // ID actualizado para Call of Duty
+                    name: 'Call of Duty: Modern Warfare II',
+                    price: 349 // Precio actualizado
+                };
+                cart.addItem(product);
+            });
+
+            clearCartButton.addEventListener('click', () => {
+                cart.clearCart();
+            });
+
+            purchaseButton.addEventListener('click', () => {
+                cart.purchase();
+            });
+        });
+// Ocultar carrito con clases
+function hideCart() {
+    const cartElement = document.getElementById('cart');
+    const showCartButton = document.getElementById('show-cart-btn');
+
+    cartElement.classList.add('hidden'); // Añadir clase para ocultar
+    showCartButton.style.display = 'block'; // Mostrar botón de "Mostrar carrito"
+}
+
+// Mostrar carrito con clases
+function showCart() {
+    const cartElement = document.getElementById('cart');
+    const showCartButton = document.getElementById('show-cart-btn');
+
+    cartElement.classList.remove('hidden'); // Quitar clase para mostrar
+    showCartButton.style.display = 'none'; // Ocultar botón de "Mostrar carrito"
+}
+
+// Eventos asociados
+document.addEventListener('DOMContentLoaded', () => {
+    const hideCartButton = document.getElementById('hide-cart-btn');
+    const showCartButton = document.getElementById('show-cart-btn');
+
+    hideCartButton.addEventListener('click', hideCart);
+    showCartButton.addEventListener('click', showCart);
+});
+
+    </script>
+
+<style>
+/* Estilo base para el carrito */
+#cart {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#cart.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Botones */
+#hide-cart-btn,
+#show-cart-btn {
+    background: linear-gradient(45deg, #ff007b, #ff5733);
+    color: white;
+    border: 2px solid #ffd700;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    width: 150px;
+}
+
+/* Botón Mostrar Carrito fijo */
+#show-cart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .nav a {
+        display: block;
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+
+    .product-page {
+        padding: 10px;
+    }
+
+    .product-overview {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .product-info {
+        margin-top: 20px;
+    }
+
+    #cart {
+        width: 90%;
+    }
+
+    #show-cart-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 120px;
+    }
+
+    #hide-cart-btn {
+        width: 120px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .nav a {
+        font-size: 0.9rem;
+    }
+
+    .product-info {
+        font-size: 0.9rem;
+    }
+
+    .product-image {
+        max-width: 100%;
+    }
+
+    #show-cart-btn {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    #hide-cart-btn {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,166 @@
+/* Base Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Header */
+.header {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap; /* Ajuste flexible en pantallas pequeñas */
+    gap: 10px;
+}
+
+.nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #0078d7;
+}
+
+/* User Options */
+.user-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.user-options a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-options a:hover {
+    color: #0078d7;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product List */
+.product-list .product {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    display: flex;
+    flex-wrap: wrap; /* Ajusta los elementos en pantallas pequeñas */
+    align-items: center;
+    gap: 10px;
+}
+
+.product h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    flex: 1; /* Permite que el título se ajuste al espacio disponible */
+}
+
+.add-to-cart {
+    background-color: #0078d7;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.add-to-cart:hover {
+    background-color: #005fa3;
+}
+
+/* Cart Section */
+.cart {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+}
+
+.cart h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#checkout-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%; /* Asegura que ocupe todo el ancho en pantallas pequeñas */
+}
+
+#checkout-btn:hover {
+    background-color: #1c7c30;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Apila los elementos del encabezado */
+        text-align: center;
+        gap: 15px;
+    }
+
+    .product-list .product {
+        flex-direction: column; /* Apila los elementos del producto */
+        text-align: center;
+    }
+
+    .add-to-cart {
+        width: 100%; /* Botón ocupa todo el ancho en dispositivos pequeños */
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px; /* Reduce el tamaño del logo en pantallas muy pequeñas */
+    }
+
+    .nav {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .cart {
+        padding: 15px; /* Ajusta el espaciado del carrito */
+    }
+
+    #checkout-btn {
+        font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+    }
+}

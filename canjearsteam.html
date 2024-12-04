@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Canjear un Código en Steam - Tienda SotoFreakin1407</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0b46, #360a8b);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: #2e006a;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .logo img {
+            max-height: 50px;
+            transition: transform 0.3s;
+        }
+
+        .header .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .login-register {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .login-register a {
+            color: #ff007b;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-register a:hover {
+            color: #e6006e;
+            transform: translateY(-2px);
+        }
+
+        .redeem-section {
+            padding: 60px 20px;
+            background-color: #22034c;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 40px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .redeem-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .redeem-section h2 {
+            color: #ffd700;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        .redeem-section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #dddddd;
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 20px;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .steps-list {
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+            color: #ffffff;
+            animation: slideIn 1.5s ease;
+        }
+
+        .steps-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            transition: transform 0.3s, color 0.3s;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .steps-list li::before {
+            content: "✓";
+            color: #ff007b;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            top: 0;
+        }
+
+        .steps-list li:hover {
+            transform: translateX(10px);
+            color: #ffd700;
+        }
+
+        .footer {
+            background-color: #250364;
+            padding: 20px;
+            text-align: center;
+            color: #bbbbbb;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #ff007b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #e6006e;
+        }
+
+        .btn-home {
+            background-color: #1a0b46;
+            color: #ffd700;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-home:hover {
+            background-color: #250364;
+            transform: translateY(-2px);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quotes-section {
+                padding: 40px 15px;
+                margin: 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2rem;
+            }
+
+            .form-control {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-home {
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .header {
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding: 15px 30px;
+            }
+
+            .quotes-section {
+                padding: 50px 20px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .login-register {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        @media (min-width: 901px) {
+            .quotes-section {
+                padding: 60px 40px;
+            }
+
+            .quotes-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Actualizado -->
+    <header class="header">
+        
+        <h2 style="color: #ffd700; font-size: 1.8rem; text-align: center;">Sotofreakin1407</h2>
+        <div class="login-register" id="user-info">
+            <a href="proyecto.html" class="btn-home">Volver a Inicio</a>
+            <a href="iniciosesion.html" id="login-link">Iniciar sesión</a> 
+        </div>
+    </header>
+
+    <!-- Sección "Cómo Canjear un Código" -->
+    <section class="redeem-section">
+        <div class="container">
+            <h2>Cómo Canjear un Código en Steam</h2>
+            <p>Canjear un código en Steam es muy sencillo. Sigue estos pasos para activar tu juego:</p>
+            <ul class="steps-list">
+                <li><strong>Paso 1:</strong> Abre el cliente de Steam en tu computadora y asegúrate de haber iniciado sesión en tu cuenta.</li>
+                <li><strong>Paso 2:</strong> Haz clic en "Juegos" en la barra de menú superior y selecciona "Activar un producto en Steam".</li>
+                <li><strong>Paso 3:</strong> Se abrirá una ventana emergente. Haz clic en "Siguiente" y luego en "Acepto" para continuar.</li>
+                <li><strong>Paso 4:</strong> Introduce tu código de producto en el campo correspondiente y haz clic en "Siguiente".</li>
+                <li><strong>Paso 5:</strong> ¡Listo! El juego se añadirá a tu biblioteca de Steam y podrás descargarlo y jugarlo cuando quieras.</li>
+            </ul>
+            <p>¡Disfruta de tus juegos con la facilidad de Tienda SotoFreakin1407!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2024 Tienda SotoFreakin1407. Todos los derechos reservados. <a href="privacidad.html">Política de Privacidad</a></p>
+    </div>
+
+    <!-- Funcionalidad de Sesión -->
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            const userInfo = document.getElementById("user-info");
+
+            if (loggedInUser) {
+                // Si el usuario ha iniciado sesión, muestra su nombre y un enlace para cerrar sesión
+                userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <span>Bienvenido, ${loggedInUser}</span> | <a href="iniciosesion.html" onclick="logout()">Cerrar sesión</a>`;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser"); // Elimina el estado de la sesión
+    
+            // Vuelve a mostrar los enlaces "Iniciar sesión" y "Registrarse"
+            const userInfo = document.getElementById("user-info");
+            userInfo.innerHTML = `<a href="proyecto.html" class="btn-home">Volver a Inicio</a> | <a href="iniciosesion.html" id="login-link">Iniciar sesión</a>`;
+        }
+    </script>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

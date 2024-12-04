@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Juegos Nintendo Switch - Tienda SotoFreakin1407</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa; /* Fondo suave para la página */
+    color: #333; /* Color de texto oscuro */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f44336; /* Rojo Nintendo Switch */
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.header:hover {
+    background-color: #e53935; /* Rojo más brillante al hacer hover */
+}
+
+.logo img {
+    width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.search-bar {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 10px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #e53935; /* Rojo Nintendo Switch */
+    background-color: #f0f4f8; /* Fondo suave en tonos claros */
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: #888; /* Gris suave para los textos de placeholder */
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 10px rgba(229, 57, 53, 0.7); /* Resaltado en rojo brillante */
+    background-color: #e7f3f4; /* Fondo más claro cuando está enfocado */
+    border-color: #00bcd4; /* Azul brillante cuando está en focus */
+}
+
+.user-options {
+    display: flex;
+    gap: 10px;
+}
+
+.user-options a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.user-options a:hover {
+    color: #00bcd4; /* Azul suave en hover */
+}
+
+.navigation {
+    background-color: #f44336; /* Rojo Nintendo Switch */
+    padding: 10px;
+    text-align: center;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navigation ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+    color: #00bcd4; /* Azul suave en el hover */
+}
+
+.catalog {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.catalog h1 {
+    font-size: 2.5rem;
+    color: #00bcd4; /* Azul brillante Nintendo Switch */
+    margin-bottom: 20px;
+}
+
+.owl-carousel .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff; /* Fondo claro para las tarjetas */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.owl-carousel .item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.owl-carousel .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.owl-carousel .item h5 {
+    font-size: 1.2rem;
+    color: #e53935; /* Rojo suave para los títulos */
+    margin: 10px 0;
+}
+
+.price {
+    color: #00bcd4; /* Azul brillante para el precio */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #00bcd4; /* Azul brillante Nintendo Switch */
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0097a7; /* Azul más oscuro */
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #f44336; /* Rojo Nintendo Switch */
+    color: white;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #ffd700; /* Dorado para los títulos */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding-left: 10px;
+}
+
+.footer-column ul li a:hover {
+    color: #ffd700;
+    padding-left: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-icons a img {
+    width: 35px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+.subscribe {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.subscribe h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffd700; /* Dorado Nintendo Switch */
+    font-weight: bold;
+}
+
+.subscribe form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.subscribe input {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 30px;
+    border: 2px solid #00bcd4; /* Azul brillante */
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.subscribe input::placeholder {
+    color: #ddd;
+    font-style: italic;
+}
+
+.subscribe input:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    background-color: #2A3C52;
+}
+
+.subscribe button {
+    padding: 12px 30px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    text-align: center;
+}
+
+.subscribe button:hover {
+    background-color: #0097a7;
+    transform: scale(1.1);
+}
+
+.subscribe button:active {
+    background-color: #00838f;
+}
+
+/* Animación para los campos de entrada */
+.subscribe input:focus, .subscribe button:focus {
+    outline: none;
+}
+
+.footer-legal {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .subscribe input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-column h3 {
+        font-size: 16px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+
+    .subscribe input {
+        max-width: 100%;
+    }
+
+    .social-icons a img {
+        width: 30px;
+    }
+}
+
+/* Estilo general */
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 auto; /* Centrado horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 2px solid #006fd6;
+    background-color: #1c2b47;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder */
+.search-bar input::placeholder {
+    color: #a0a9bb;
+    font-style: italic;
+}
+
+/* Estilo del campo de entrada cuando se hace focus */
+.search-bar input:focus {
+    border-color: #00a0e1;
+    box-shadow: 0 0 10px rgba(0, 160, 225, 0.7);
+    background-color: #2b3c56;
+}
+
+/* Estilo de los resultados de búsqueda */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1c2b47;
+    border-radius: 10px;
+    border: 1px solid #00a0e1;
+    color: white;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results ul li {
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.search-results ul li:hover {
+    background: #00a0e1;
+    border-radius: 5px;
+}
+
+.search-results ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.search-results ul li a:hover {
+    color: #fff700;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="sffff.png" alt="Logo Eneba">
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Busca juegos de Nintendo Switch">
+            <div id="search-results" class="search-results"></div> <!-- Contenedor para los resultados -->
+        </div>
+        <div class="user-options">
+            <a href="iniciosesion.html">Iniciar Sesión</a> 
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="proyecto.html">Inicio</a></li>
+            <li><a href="xbox.html">Juegos XBOX</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="comocomprar.html">Como comprar</a></li>
+            
+        </ul>
+    </nav>
+
+    <main class="catalog">
+        <h1>Juegos Disponibles en Nintendo Switch</h1>
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <img src="zelda.jpeg" alt="The Legend of Zelda: Breath of the Wild">
+                <h5>The Legend of Zelda: Breath of the Wild</h5>
+                <p class="price">300 Bs</p>
+                <a href="zelda.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="mariodi.jpg" alt="Super Mario Odyssey">
+                <h5>Super Mario Odyssey</h5>
+                <p class="price">250 Bs</p>
+                <a href="marioodi.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="animal.jpg" alt="Animal Crossing: New Horizons">
+                <h5>Animal Crossing: New Horizons</h5>
+                <p class="price">220 Bs</p>
+                <a href="animal.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="pokemon.webp" alt="Pokémon Sword">
+                <h5>Pokémon Sword</h5>
+                <p class="price">270 Bs</p>
+                <a href="pokemon.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="splaton2.png" alt="Splatoon 2">
+                <h5>Splatoon 2</h5>
+                <p class="price">200 Bs</p>
+                <a href="splatoon2.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="metroid.webp" alt="Metroid Dread">
+                <h5>Metroid Dread</h5>
+                <p class="price">280 Bs</p>
+                <a href="metroid.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="fireemblem.jpg" alt="Fire Emblem: Three Houses">
+                <h5>Fire Emblem: Three Houses</h5>
+                <p class="price">260 Bs</p>
+                <a href="fire.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="xenoblade.jpg" alt="Xenoblade Chronicles 2">
+                <h5>Xenoblade Chronicles 2</h5>
+                <p class="price">310 Bs</p>
+                <a href="xenoblade.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="superbros.jpg" alt="Super Smash Bros. Ultimate">
+                <h5>Super Smash Bros. Ultimate</h5>
+                <p class="price">320 Bs</p>
+                <a href="superbros.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="kirby.jpg" alt="Kirby and the Forgotten Land">
+                <h5>Kirby and the Forgotten Land</h5>
+                <p class="price">230 Bs</p>
+                <a href="kirby.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="marioKart.jpg" alt="Mario Kart 8 Deluxe">
+                <h5>Mario Kart 8 Deluxe</h5>
+                <p class="price">280 Bs</p>
+                <a href="mariokart.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="donkeKong.jpg" alt="Donkey Kong Country: Tropical Freeze">
+                <h5>Donkey Kong Country: Tropical Freeze</h5>
+                <p class="price">270 Bs</p>
+                <a href="donkeykong.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            
+            <div class="item">
+                <img src="supermarioparty.jpg" alt="Super Mario Party™ Jamboree">
+                <h5>Super Mario Party™ Jamboree</h5>
+                <p class="price">420 Bs</p>
+                <a href="supermarioparty.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="marioyluigi.jpg" alt="Mario & Luigi™: Brothership">
+                <h5>Mario & Luigi™: Brothership</h5>
+                <p class="price">300 Bs</p>
+                <a href="marioluigi.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="luigi.jpg" alt="Luigi's Mansion™ 2 HD">
+                <h5>Luigi's Mansion™ 2 HD</h5>
+                <p class="price">210 Bs</p>
+                <a href="luigimansion.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+            <div class="item">
+                <img src="wonder.jpg" alt="Super Mario Bros.™ Wonder">
+                <h5>Super Mario Bros.™ Wonder</h5>
+                <p class="price">320 Bs</p>
+                <a href="wonder.html" class="btn btn-primary">Comprar ahora</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Sobre Nosotros</h3>
+                <ul>
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                    <li><a href="pqhicimos.html">Por que hicimos esta pagina</a></li>
+                    <li><a href="frases.html">Frases de videojueogs</a></li>
+                    <li><a href="comentarios.html">Comentarios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Comprar</h3>
+                <ul>
+                    <li><a href="comocomprar.html">Cómo Comprar</a></li>
+                    <li><a href="canjearsteam.html">canjear en steam</a></li>
+                    <li><a href="canjearepic.html">canjear en epic games</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    
+                    <li><a href="devoluciones.html">Política de Devoluciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Comunidad</h3>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="sorteo.html">Sorteos</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/p/18AAEs5R2T/"><img src="facebook.png" alt="Facebook"></a>
+                    <a href="https://x.com/?lang=es"><img src="xxxx.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com"><img src="ig.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe">
+            <h3>Recibe ofertas personalizadas</h3>
+            <form id="subscribeForm">
+                <input type="email" id="emailInput" placeholder="Introduce tu email" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+        
+        <script>
+            document.getElementById("subscribeForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Previene el envío por defecto del formulario
+        
+                const emailInput = document.getElementById("emailInput").value;
+                const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Patrón simple de validación de email
+        
+                if (emailPattern.test(emailInput)) {
+                    alert("¡Gracias por suscribirte!");
+                    // Aquí puedes añadir lógica adicional para enviar el email al servidor
+                } else {
+                    alert("Por favor, introduce un correo electrónico válido.");
+                }
+            });
+        </script>
+        
+        <p class="footer-legal">© 2024 Tienda de Videojuegos. Todos los derechos reservados.</p>
+    </footer>
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                items: 3,
+                margin: 20,
+                loop: true,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+        const searchInput = document.getElementById("search-input");
+        const searchResults = document.getElementById("search-results");
+        const gameItems = document.querySelectorAll(".item");
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            const matches = Array.from(gameItems).filter(item =>
+                item.querySelector("h5").textContent.toLowerCase().includes(searchTerm)
+            );
+
+            if (matches.length > 0 && searchTerm.trim() !== "") {
+                searchResults.style.display = "block";
+                searchResults.innerHTML = `<ul>${matches
+                    .map(
+                        match =>
+                            `<li><a href="${match.querySelector("a").href}">${match.querySelector("h5").textContent}</a></li>`
+                    )
+                    .join("")}</ul>`;
+            } else {
+                searchResults.style.display = "none";
+            }
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!document.querySelector(".search-bar").contains(e.target)) {
+                searchResults.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

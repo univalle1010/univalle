@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Tienda SotoFreakin1407</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilo general */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1a0b46, #360a8b);
+            color: white;
+        }
+
+        /* Encabezado */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #250364;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            flex-wrap: wrap;
+        }
+
+        .header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .header .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .header .nav a:hover {
+            color: #ff007b;
+        }
+
+        .header .user-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .user-options a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .header .user-options a:hover {
+            color: #ffd700;
+        }
+
+        /* Contenido principal */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Estadísticas */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background: #360a8b;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s, background-color 0.3s;
+            animation: slideUp 0.7s ease-in-out;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: #4b12b8;
+        }
+
+        .stat-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .stat-card p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Información detallada */
+        .details-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .details {
+            flex: 1;
+            background: #250364;
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s, background-color 0.3s;
+        }
+
+        .details:hover {
+            transform: translateY(-10px);
+            background: #360a8b;
+        }
+
+        .details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .details p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats, .details-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Tienda SotoFreakin1407</div>
+        <nav class="nav">
+            <a href="proyecto.html">Inicio</a>
+            <a href="#">Juegos Baratos</a>
+            <a href="#">Ofertas Especiales</a>
+            <a href="#">Game Pass</a>
+            <a href="#">Soporte</a>
+        </nav>
+        <div class="user-options" id="user-info">
+            <a href="iniciosesion.html">Iniciar Sesión</a> 
+        </div>
+    </header>
+
+    <main>
+        <h1>Dashboard Administrativo</h1>
+
+        <section class="stats">
+            <div class="stat-card">
+                <h2>Ventas Totales</h2>
+                <p>Bs. 52,000</p>
+            </div>
+            <div class="stat-card">
+                <h2>Usuarios Activos</h2>
+                <p>210</p>
+            </div>
+            <div class="stat-card">
+                <h2>Pedidos Pendientes</h2>
+                <p>25</p>
+            </div>
+        </section>
+
+        <section class="details-container">
+            <div class="details">
+                <h3>Juegos más vendidos</h3>
+                <p>
+                    1. **Cyberpunk 2077** - 120 copias<br>
+                    2. **LEGO Star Wars: The Skywalker Saga** - 95 copias<br>
+                    3. **Dead by Daylight** - 85 copias
+                </p>
+            </div>
+            <div class="details">
+                <h3>Nuevos Usuarios del Mes</h3>
+                <p>
+                    Octubre 2024: 45 nuevos usuarios<br>
+                    Septiembre 2024: 30 nuevos usuarios<br>
+                    Agosto 2024: 35 nuevos usuarios
+                </p>
+            </div>
+            <div class="details">
+                <h3>Comentarios Recientes</h3>
+                <ul id="commentsList"></ul>
+            </div>
+            
+        </section>
+    </main>
+    <script src="auth.js"></script>
+    <script src="jedi_survivor.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const statCards = document.querySelectorAll(".stat-card");
+
+            statCards.forEach((card) => {
+                card.addEventListener("click", () => {
+                    alert(`Has seleccionado la tarjeta: ${card.querySelector("h2").textContent}`);
+                });
+            });
+
+            const user = localStorage.getItem("loggedInUser");
+            const userInfo = document.getElementById("user-info");
+
+            if (user) {
+                userInfo.innerHTML = `<span>Bienvenido, ${user}</span> | <a href="#" onclick="logout()">Cerrar sesión</a>`;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            location.reload();
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+    const commentsList = document.getElementById("commentsList");
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+    if (comments.length > 0) {
+        comments.forEach((comment) => {
+            const li = document.createElement("li");
+            li.textContent = comment;
+            commentsList.appendChild(li);
+        });
+    } else {
+        commentsList.innerHTML = "<li>No hay comentarios recientes.</li>";
+    }
+});
+
+    </script>
+</body>
+</html>
